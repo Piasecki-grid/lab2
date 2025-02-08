@@ -1,0 +1,19 @@
+name: My special workflow
+on:
+	workflow_dispatch:
+		inputs:
+			run_tests:
+				type: boolean
+				description: Should we run tests:
+				required: true
+			random_message:
+				type: string
+				description: Add any comment u want
+				required: false
+jobs:
+	run_tests:
+		runs-on: ubuntu-latest
+		if: inputs.run_tests == true
+		steps:
+			- name: running test1
+			  run: echo "value of run_tests = ${{ inputs.run_tests }}"	
